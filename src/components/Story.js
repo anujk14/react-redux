@@ -1,13 +1,14 @@
 import React from 'react';
 import './Story.css';
 
-const Story = ({ story, columns }) => {
+const Story = ({ story, columns, onArchive }) => {
   const {
     title,
     url,
     author,
     num_comments,
     points,
+    objectID,
   } = story;
 
   return (
@@ -25,9 +26,30 @@ const Story = ({ story, columns }) => {
         {points}
       </span>
       <span style={{ width: columns.archive.width }}>
+        <ButtonInline onClick={() => onArchive(objectID)}>
+          Archive
+        </ButtonInline>
       </span>
     </div>
   );
 }
+
+const ButtonInline = ({ onClick, type = 'button', children }) =>
+  <Button
+    type={type}
+    className="button-inline"
+    onClick={onClick}
+  >
+    {children}
+  </Button>
+
+const Button = ({ onClick, className, type = 'button', children }) =>
+  <button
+    type={type}
+    className={className}
+    onClick={onClick}
+  >
+    {children}
+  </button>
 
 export default Story;
