@@ -5,8 +5,7 @@ function isNotArchived(archivedIds) {
 }
 
 const getReadableStories = ({ storyState, archiveState }) =>
-  storyState.filter(isNotArchived(archiveState));
-
+  storyState.stories.filter(isNotArchived(archiveState));
   /*
 The above method can also be written as follows in old JS syntax:
 function getReadableStories(state) {
@@ -14,6 +13,10 @@ function getReadableStories(state) {
 }
 */
 
+const getFetchError = ({ storyState }) =>
+  storyState.error;
+
 export {
   getReadableStories,
+  getFetchError,
 };  
