@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
+import SearchStories from './SearchStories';
 
 import Stories from './Stories';
 
 const App = ({ stories, onArchive }) =>
   <div className='app'>
+    <div className="interactions">
+      <SearchStories />
+    </div>
     <Stories />
   </div>
 
